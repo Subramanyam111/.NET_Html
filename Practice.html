@@ -2,100 +2,334 @@
 <html lang="en">
 <head>   
     <title>my from </title>
+    <style>
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .form-group:hover label {
+            color: #0a8afa;
+        }
+        .form-group:hover input,
+        .form-group:hover select,
+        .form-group:hover textarea {
+            background-color: #e9eef3;
+            border-color: #0a8afa;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 32px 32px 24px 32px;
+            border-radius: 10px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+            max-width: 530px;
+            margin: 48px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        h1 {
+            color: #2d3a4a;
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Segoe UI', Georgia, serif;
+            font-size: 38px;
+            letter-spacing: 1px;
+        }
+        h1:hover {
+            color: #3e5c76;
+        }
+        label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="month"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"],
+        select,
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #bfc7d1;
+            font-size: 16px;
+            background-color: #f8fafc;
+            color: #2d3a4a;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        input[type="text"]:hover,
+        input[type="number"]:hover,
+        input[type="date"]:hover,
+        input[type="month"]:hover,
+        input[type="email"]:hover,
+        input[type="tel"]:hover,
+        input[type="password"]:hover,
+        select:hover,
+        textarea:hover {
+            background-color: #e9eef3;
+            border-color: #3e5c76;
+        }
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="password"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #3e5c76;
+            outline: none;
+        }
+        .form-actions {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: #3e5c76;
+            color: #fff;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            box-shadow: 0 2px 6px rgba(9, 74, 131, 0.457);
+            transition: background 0.5s;
+        }
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #2d3a4a;
+        }
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .checkbox-group label, .radio-group label {
+            margin-bottom: 0;
+            font-weight: normal;
+            color: #3e5c76;
+        }
+        details {
+            margin-top: 20px;
+        }
+        label {
+            font-weight: 600;
+            color: #2d3a4a;
+
+        }
+        label:hover {
+            color: #0a8afa;
+            grid-auto-flow: column;
+        }
+        .gender-label {
+            margin-bottom: 8px;
+        }
+        .form-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .form-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        #color {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #bfc7d1;
+            background-color: #fff;
+            cursor: pointer;
+            padding: 0;
+            display: inline-block;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            appearance: none;
+            -webkit-appearance: none;
+            margin-bottom: 2%;
+        }
+        #color::-webkit-color-swatch-wrapper {
+            padding: 0;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        #color::-webkit-color-swatch {
+            border: none;
+            border-radius: 50%;
+        }
+        #color::-moz-color-swatch {
+            border: none;
+            border-radius: 50%;
+        }
+        #color::-ms-fill-lower {
+            border-radius: 50%;
+        }
+        #files {
+            padding: 0;
+            border: none;
+            background-color: transparent;
+            color: #2d3a4a;
+            font-size: 16px;
+            margin-bottom: 10px;
+            
+        }
+    </style>
 </head>
 <body>
     <form>
         <h1>data from</h1>
+    <div class="form-container">
+    <div class="form-column">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required placeholder="Enter your name">
+        </div>
 
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" ><br><br>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" min="1" max="120" required placeholder="Enter your age">
+        </div>
 
-        <label for="age">Age:</label>
-        <input type="number" name="age" id="age" min="1" max="120" ><br><br>
+        <div class="form-group radio-area">
+            <label class="gender-label">Gender:</label>
+            <div class="radio-group">
+                <input type="radio" name="gender" id="male" value="male">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female" value="female">
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="other" value="other">
+                <label for="other">Other</label>
+            </div>
+        </div>
 
-        <label>Gender:</label><br>
-        <input type="radio" name="gender" id="male" value="male">
-        <label for="male">Male</label>
-        <input type="radio" name="gender" id="female" value="female">
-        <label for="female">Female</label>
-        <input type="radio" name="gender" id="other" value="other">
-        <label for="other">Other</label><br><br>
+        <div class="form-group">
+            <label for="subscribe">Date Of Birth :</label>
+            <input type="date" name="subscribe" id="subscribe" value="yes">
+        </div>
 
-        <label for="subscribe">Date Of Birth :</label>
-        <input type="date" name="subscribe" id="subscribe" value="yes"><br><br>
+        <div class="form-group">
+            <label for="month">Month:</label>
+            <input type="month" name="month" id="month" value="yes">
+        </div>
 
-        <label for="month">Month:</label>
-        <input type="month" name="month" id="month" value="yes"><br><br>
+        <div class="form-group">
+            <label>Courses :</label>
+            <div class="checkbox-group">
+                <input type="checkbox" name="course" id="course4" value="Python">
+                <label for="course4">Python</label>
+                <input type="checkbox" name="course" id="course5" value="Java">
+                <label for="course5">Java</label>
+                <input type="checkbox" name="course" id="course6" value=".Net">
+                <label for="course6">.Net</label>
+            </div>
+        </div>
 
-        <label>Courses :</label><br>
-        <input type="checkbox" name="course" id="course1" value="HTML">
-        <label for="course1">HTML</label>
-        <input type="checkbox" name="course" id="course2" value="CSS">
-        <label for="course2">CSS</label>
-        <input type="checkbox" name="course" id="course3" value="JavaScript">
-        <label for="course3">JavaScript</label>
-        <input type="checkbox" name="course" id="course4" value="Python">
-        <label for="course4">Python</label>
-        <input type="checkbox" name="course" id="course5" value="Java">
-        <label for="course5">Java</label>
-        <input type="checkbox" name="course" id="course5" value="Java">
-        <label for="course5">.Net</label><br><br>
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <select name="country" id="country" required>
+                <option  value=""> </option>
+                <option value="India" >India</option>
+            </select>
+        </div>
 
-        <label for="country">Country:</label>
-        <select name="country" id="country" required>
-            <option  value=""> </option>
-            <option value="India" >India</option>
-        </select><br><br>
+        <div class="form-group">
+            <label for="state">State:</label>
+            <select name="state" id="state" required>
+                <option value=""></option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Delhi">Delhi</option>
+                <option value="West Bengal">West Bengal</option>
+            </select>
+        </div>
 
-        <label for="state">State:</label>
-        <select name="state" id="state" required>
-            <option value=""></option>
-            <option value="Andhra Pradesh">Andhra Pradesh</option>
-            <option value="Telangana">Telangana</option>
-            <option value="Tamil Nadu">Tamil Nadu</option>
-            <option value="Karnataka">Karnataka</option>
-            <option value="Maharashtra">Maharashtra</option>
-            <option value="Gujarat">Gujarat</option>
-            <option value="Kerala">Kerala</option>
-            <option value="Delhi">Delhi</option>
-            <option value="West Bengal">West Bengal</option>
-        </select><br><br>
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" name="city" id="city" list="cities" required>
+            <datalist id="cities">
+                <option value="Hyderabad">
+                <option value="Chennai">
+                <option value="Bangalore">
+                <option value="Mumbai">
+                <option value="Delhi">
+                <option value="Kolkata">
+                <option value="Ahmedabad">
+                <option value="Pune">
+                <option value="Visakhapatnam">
+            </datalist>
+        </div>
+    </div>
+    <div class="form-column">
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" name="address" id="address" placeholder="Enter your address" required>
+        </div>
 
-        <label for="city">City:</label>
-        <input type="text" name="city" id="city" list="cities" required>
-        <datalist id="cities">
-            <option value="Hyderabad">
-            <option value="Chennai">
-            <option value="Bangalore">
-            <option value="Mumbai">
-            <option value="Delhi">
-            <option value="Kolkata">
-            <option value="Ahmedabad">
-            <option value="Pune">
-            <option value="Visakhapatnam">
-        </datalist><br><br>
+        <div class="form-group">
+            <label  for="files">files:</label>
+            <input type="file" name="files" id="files" multiple>
+        </div>
 
-        <label  for="files">files:</label>
-        <input type="file" name="files" id="files" multiple><br><br>
+        <div class="form-group">
+            <label for="mail">mail:</label>
+            <input type="email" name="mail" id="mail" placeholder="Enter your email" required>
+        </div>
 
-        <label for="mail">mail:</label>
-        <input type="email" name="mail" id="mail" placeholder="Enter your email" required><br><br>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" name="phone" id="phone" pattern="[0-9]{10}" placeholder="Enter 10-digit phone number" required>
+        </div>
 
-        <label for="phone">Phone:</label>
-        <input type="tel" name="phone" id="phone" pattern="[0-9]{10}" placeholder="Enter 10-digit phone number" required><br><br>
+        <div class="form-group">
+            <label for="password">password:</label>
+            <input type="password" name="password" id="password" minlength="8" required placeholder="Enter at least 8 characters">
+        </div>
 
-        <label for="password">password:</label>
-        <input type="password" name="password" id="password" minlength="8" required placeholder="Enter at least 8 characters"><br><br>
+        <div class="form-group">
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" name="confirm-password" id="confirm-password" minlength="8" required placeholder="Re-enter your password">
+        </div>
 
-        <label for="confirm-password">Confirm Password:</label>
-        <input type="password" name="confirm-password" id="confirm-password" minlength="8" required placeholder="Re-enter your password"><br><br>
-
-        <label for="color">color:</label><br>
-        <input type="color" name="color" id="color" value="#000000"><br><br>
+        <div class="form-group">
+            <label for="color">color:</label>
+            <input type="color" name="color" id="color" value="#000000">
+        </div>
         
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset"><br><br>
-
+        <div class="form-group">
+            <label for="additional-info">Additional Information:</label>
+            <textarea name="additional-info" id="additional-info" rows="4" placeholder="Enter any additional information here..."></textarea>
+        </div>
+    </div>
+</div>
+        <div class="form-actions">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+    
         <details>
             <summary>Terms and Conditions</summary>
             <ul>
@@ -104,7 +338,7 @@
                 <li>Choose relevant courses</li>
                 <li>Select appropriate state and city</li>
                 <li>All information will be kept confidential</li>
-            </ul><br><br>
+            </ul>
         </details>
     </form>
 </body>
