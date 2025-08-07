@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>   
+    <title>my from </title>
+</head>
+<body>
+    <form>
+        <h1>data from</h1>
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" ><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" min="1" max="120" ><br><br>
+
+        <label>Gender:</label><br>
+        <input type="radio" name="gender" id="male" value="male">
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="female">
+        <label for="female">Female</label>
+        <input type="radio" name="gender" id="other" value="other">
+        <label for="other">Other</label><br><br>
+
+        <label for="subscribe">Date Of Birth :</label>
+        <input type="date" name="subscribe" id="subscribe" value="yes"><br><br>
+
+        <label for="month">Month:</label>
+        <input type="month" name="month" id="month" value="yes"><br><br>
+
+        <label>Courses :</label><br>
+        <input type="checkbox" name="course" id="course1" value="HTML">
+        <label for="course1">HTML</label>
+        <input type="checkbox" name="course" id="course2" value="CSS">
+        <label for="course2">CSS</label>
+        <input type="checkbox" name="course" id="course3" value="JavaScript">
+        <label for="course3">JavaScript</label>
+        <input type="checkbox" name="course" id="course4" value="Python">
+        <label for="course4">Python</label>
+        <input type="checkbox" name="course" id="course5" value="Java">
+        <label for="course5">Java</label>
+        <input type="checkbox" name="course" id="course5" value="Java">
+        <label for="course5">.Net</label><br><br>
+
+        <label for="country">Country:</label>
+        <select name="country" id="country" required>
+            <option  value=""> </option>
+            <option value="India" >India</option>
+        </select><br><br>
+
+        <label for="state">State:</label>
+        <select name="state" id="state" required>
+            <option value=""></option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Delhi">Delhi</option>
+            <option value="West Bengal">West Bengal</option>
+        </select><br><br>
+
+        <label for="city">City:</label>
+        <input type="text" name="city" id="city" list="cities" required>
+        <datalist id="cities">
+            <option value="Hyderabad">
+            <option value="Chennai">
+            <option value="Bangalore">
+            <option value="Mumbai">
+            <option value="Delhi">
+            <option value="Kolkata">
+            <option value="Ahmedabad">
+            <option value="Pune">
+            <option value="Visakhapatnam">
+        </datalist><br><br>
+
+        <label  for="files">files:</label>
+        <input type="file" name="files" id="files" multiple><br><br>
+
+        <label for="mail">mail:</label>
+        <input type="email" name="mail" id="mail" placeholder="Enter your email" required><br><br>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" name="phone" id="phone" pattern="[0-9]{10}" placeholder="Enter 10-digit phone number" required><br><br>
+
+        <label for="password">password:</label>
+        <input type="password" name="password" id="password" minlength="8" required placeholder="Enter at least 8 characters"><br><br>
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" name="confirm-password" id="confirm-password" minlength="8" required placeholder="Re-enter your password"><br><br>
+
+        <label for="color">color:</label><br>
+        <input type="color" name="color" id="color" value="#000000"><br><br>
+        
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset"><br><br>
+
+        <details>
+            <summary>Terms and Conditions</summary>
+            <ul>
+                <li>Provide accurate name and age</li>
+                <li>Select the correct gender</li>
+                <li>Choose relevant courses</li>
+                <li>Select appropriate state and city</li>
+                <li>All information will be kept confidential</li>
+            </ul><br><br>
+        </details>
+    </form>
+</body>
+</html>
