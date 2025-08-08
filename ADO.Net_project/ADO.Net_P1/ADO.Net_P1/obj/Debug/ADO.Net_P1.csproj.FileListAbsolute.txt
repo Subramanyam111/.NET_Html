@@ -1,0 +1,7 @@
+C:\Users\admin\Desktop\.NET_Html\ADO.Net_project\ADO.Net_P1\ADO.Net_P1\bin\Debug\ADO.Net_P1.exe.config
+C:\Users\admin\Desktop\.NET_Html\ADO.Net_project\ADO.Net_P1\ADO.Net_P1\bin\Debug\ADO.Net_P1.exe
+C:\Users\admin\Desktop\.NET_Html\ADO.Net_project\ADO.Net_P1\ADO.Net_P1\bin\Debug\ADO.Net_P1.pdb
+C:\Users\admin\Desktop\.NET_Html\ADO.Net_project\ADO.Net_P1\ADO.Net_P1\obj\Debug\ADO.Net_P1.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\.NET_Html\ADO.Net_project\ADO.Net_P1\ADO.Net_P1\obj\Debug\ADO.Net_P1.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\.NET_Html\ADO.Net_project\ADO.Net_P1\ADO.Net_P1\obj\Debug\ADO.Net_P1.exe
+C:\Users\admin\Desktop\.NET_Html\ADO.Net_project\ADO.Net_P1\ADO.Net_P1\obj\Debug\ADO.Net_P1.pdb
