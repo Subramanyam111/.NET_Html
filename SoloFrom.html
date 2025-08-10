@@ -94,8 +94,73 @@
     button:hover {
         background-color: #555;
     }
+.error {
+    border: 2px solid red !important;
+    background-color: #ffeaea;
+}
 </style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            let valid = true;
+            // Remove previous highlights
+            form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
 
+            // Validate required fields
+            form.querySelectorAll('[required]').forEach(input => {
+                if (!input.value) {
+                    input.classList.add('error');
+                    valid = false;
+                }
+            });
+
+            // Validate email
+            const email = form.querySelector('#email');
+            const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+            if (email && !emailPattern.test(email.value)) {
+                email.classList.add('error');
+                valid = false;
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Validate phone (10 digits)
+            const phone = form.querySelector('#phone');
+            const phonePattern = /^\d{10}$/;
+            if (phone && !phonePattern.test(phone.value)) {
+                phone.classList.add('error');
+                valid = false;
+                alert('Please enter a valid 10-digit phone number.');
+                return;
+            }
+
+            if (!valid) {
+                alert('Please fill all required fields.');
+                return;
+            }
+
+            // Collect form data for summary
+            const summary = [
+                `First Name: ${form.name.value}`,
+                `Last Name: ${form.name2.value}`,
+                `Date of Birth: ${form.DateOfBirth.value}`,
+                `Gender: ${form.gender.value}`,
+                `Country: ${form.country.value}`,
+                `State: ${form.state.value}`,
+                `Phone: ${form.phone.value}`,
+                `Email: ${form.email.value}`,
+                `Course: ${form.course.value}`,
+                `Branch: ${form.branch.value}`,
+                `Skills: ${Array.from(form.querySelectorAll('#skills-section input[type=checkbox]:checked')).map(cb => cb.nextElementSibling.textContent).join(', ')}`
+            ];
+            alert('Form Summary:\n' + summary.join('\n'));
+            // Uncomment below to allow actual submission
+            // form.submit();
+        });
+    });
+</script>
 </head>
 <body>
     <h1><strong>Form</strong></h1>
