@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Table Website</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            margin: 0;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            padding: 32px 24px 24px 24px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #ff7e5f;
+            margin: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+        }
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 12px 8px;
+            text-align: center;
+        }
+        th {
+            background: #ff7e5f;
+            color: #fff;
+            font-weight: 700;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        button {
+            padding: 6px 16px;
+            margin: 2px;
+            border: none;
+            border-radius: 4px;
+            background: #ff7e5f;
+            color: #fff;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #feb47b;
+        }
+        .add-btn {
+            background: #43cea2;
+        }
+        .add-btn:hover {
+            background: #185a9d;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 12px 4px;
+            }
+            th, td {
+                padding: 8px 2px;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Table</h1>
+        </header>
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Course</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Rahul Sharma</td>
+                    <td>20</td>
+                    <td>BCA</td>
+                    <td>
+                        <button onclick="editRow(this)">Edit</button>
+                        <button onclick="deleteRow(this)">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Anjali Verma</td>
+                    <td>21</td>
+                    <td>MCA</td>
+                    <td>
+                        <button onclick="editRow(this)">Edit</button>
+                        <button onclick="deleteRow(this)">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Vikram Singh</td>
+                    <td>22</td>
+                    <td>BBA</td>
+                    <td>
+                        <button onclick="editRow(this)">Edit</button>
+                        <button onclick="deleteRow(this)">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Priya Patel</td>
+                    <td>19</td>
+                    <td>BTech</td>
+                    <td>
+                        <button onclick="editRow(this)">Edit</button>
+                        <button onclick="deleteRow(this)">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Mohit Agarwal</td>
+                    <td>23</td>
+                    <td>MBA</td>
+                    <td>
+                        <button onclick="editRow(this)">Edit</button>
+                        <button onclick="deleteRow(this)">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Sneha Reddy</td>
+                    <td>20</td>
+                    <td>BSc</td>
+                    <td>
+                        <button onclick="editRow(this)">Edit</button>
+                        <button onclick="deleteRow(this)">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Arjun Mehta</td>
+                    <td>22</td>
+                    <td>MTech</td>
+                    <td>
+                        <button onclick="editRow(this)">Edit</button>
+                        <button onclick="deleteRow(this)">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Riya Singh</td>
+                    <td>21</td>
+                    <td>BCom</td>
+                    <td>
+                        <button onclick="editRow(this)">Edit</button>
+                        <button onclick="deleteRow(this)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align:center; margin-top:20px;">
+            <button class="add-btn" onclick="addRow()">Add Student</button>
+        </div>
+    </div>
+    <script>
+        function deleteRow(btn) {
+            var row = btn.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+        function editRow(btn) {
+            var row = btn.parentNode.parentNode;
+            var cells = row.getElementsByTagName('td');
+            for (var i = 1; i < cells.length - 1; i++) {
+                var value = cells[i].innerText;
+                cells[i].innerHTML = '<input type="text" value="' + value + '" style="width:90%;padding:4px;border-radius:4px;border:1px solid #ccc;" />';
+            }
+            btn.textContent = 'Save';
+            btn.onclick = function() { saveRow(this); };
+        }
+        function saveRow(btn) {
+            var row = btn.parentNode.parentNode;
+            var cells = row.getElementsByTagName('td');
+            for (var i = 1; i < cells.length - 1; i++) {
+                var input = cells[i].getElementsByTagName('input')[0];
+                cells[i].innerText = input.value;
+            }
+            btn.textContent = 'Edit';
+            btn.onclick = function() { editRow(this); };
+        }
+        function addRow() {
+            var table = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
+            var rowCount = table.rows.length + 1;
+            var newRow = table.insertRow();
+            newRow.innerHTML =
+                '<td>' + rowCount + '</td>' +
+                '<td><input type="text" placeholder="Name" style="width:90%;padding:4px;border-radius:4px;border:1px solid #ccc;" /></td>' +
+                '<td><input type="number" placeholder="Age" style="width:90%;padding:4px;border-radius:4px;border:1px solid #ccc;" /></td>' +
+                '<td><input type="text" placeholder="Course" style="width:90%;padding:4px;border-radius:4px;border:1px solid #ccc;" /></td>' +
+                '<td>' +
+                '<button onclick="saveNewRow(this)">Save</button>' +
+                '<button onclick="deleteRow(this)">Delete</button>' +
+                '</td>';
+        }
+        function saveNewRow(btn) {
+            var row = btn.parentNode.parentNode;
+            var cells = row.getElementsByTagName('td');
+            var name = cells[1].getElementsByTagName('input')[0].value;
+            var age = cells[2].getElementsByTagName('input')[0].value;
+            var course = cells[3].getElementsByTagName('input')[0].value;
+            cells[1].innerText = name;
+            cells[2].innerText = age;
+            cells[3].innerText = course;
+            btn.textContent = 'Edit';
+            btn.onclick = function() { editRow(this); };
+        }
+    </script>
+</body>
+</html>
