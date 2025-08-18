@@ -3,6 +3,12 @@
 <head>   
     <title>my from </title>
     <style>
+        html {
+            scroll-padding-top: 70px;
+        }
+        html{
+             scroll-behavior: smooth;
+        }
         body{
             background-image:url("https://motionarray.imgix.net/motion-array-3185740-gE7WZiqgoG-high_0002.jpg?w=660&q=60&fit=max&auto=format");
             background-size: cover;
@@ -11,8 +17,10 @@
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            gap: 8px;
+            margin-bottom: 12px;
         }
+        
         .form-group:hover label {
             color: #1904d5;
         }
@@ -28,7 +36,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
             max-width: 530px;
-            margin: 48px auto;
+            margin: 100px auto 48px auto; /* Increased top margin for navbar */
             display: flex;
             flex-direction: column;
             gap: 14px;
@@ -110,7 +118,6 @@
             font-size: 16px;
             font-weight: 500;
             box-shadow: 0 2px 6px rgba(9, 74, 131, 0.457);
-            transition: background 0.5s;
         }
         input[type="submit"]:hover,
         input[type="reset"]:hover {
@@ -191,10 +198,133 @@
             margin-bottom: 10px;
             
         }
+        .navbar {
+            background-color: rgb(0, 0, 0);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: right;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 10px;
+            margin-left: 10px;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+        .navbar a:hover {
+            background-color: #3e5c76;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            color: turquoise;
+        }
     </style>
 </head>
 <body>
-    <form>
+        <div class="navbar">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#courses">Courses</a>
+            <a href="#awards">Awards</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div id="about" style="display: flex; flex-direction: row; align-items: center; justify-content: center; min-height: 340px; background: #ffffff69; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); margin: 110px auto 32px auto; max-width: 900px; padding: 32px;">
+            <div style="flex: 2; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;">
+                <h1 style="margin-bottom: 8px; font-size: 2.4em; color: #2d3a4a;">Subramanyam Sirisala</h1>
+                <h2 style="margin-bottom: 16px; font-size: 1.5em; color: #3e5c76; font-weight: 500;">.NET Full Stack Developer / Fresher</h2>
+                <p style="max-width: 520px; text-align: left; color: #2d3a4a; font-size: 1.1em; margin-bottom: 18px;">Highly motivated and results-driven .NET Developer with a strong foundation in C#, ASP.NET, SQL Server, HTML5, CSS3, and JavaScript. Skilled in MVC architecture, REST API development, and Entity Framework, with a proven ability to build scalable, secure, and maintainable applications. Adept at backend development, database optimization, and implementing efficient CRUD operations. Recognized for strong problem-solving, analytical skills, and collaborative teamwork, with hands-on experience from professional training and academic projects.</p>
+                <div style="margin-bottom: 8px;">
+                    <a href="mailto:sirisalasubramanyam@gmail.com" style="color:#3e5c76; text-decoration:none; font-size:1em; margin-right:16px;">sirisalasubramanyam@gmail.com</a>
+                    <span style="color:#2d3a4a; font-size:1em; margin-right:16px;">+91 6301114160</span>
+                    <span style="color:#2d3a4a; font-size:1em; margin-right:16px;">Bangalore, India</span>
+                </div>
+                <div style="margin-bottom: 8px;">
+                                <a href="https://www.linkedin.com/in/subramanyam-sirisala-3860b4219/" target="_blank" style="color:#0a8afa; margin-right:16px; display:inline-flex; align-items:center;">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" style="width:22px; height:22px; margin-right:6px; vertical-align:middle;"> LinkedIn
+                                </a>
+                                <a href="https://github.com/Subramanyam111" target="_blank" style="color:#2d3a4a; display:inline-flex; align-items:center;">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="width:22px; height:22px; margin-right:6px; vertical-align:middle;"> GitHub
+                                </a>
+                </div>
+            </div>
+            <div style="flex: 1; display: flex; justify-content: flex-end; align-items: center;">
+                <img src="my photo.jpg" alt="subramanyam photo" style="width: 160px; height: 160px; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.15); object-fit: cover; margin-left: 32px;">
+            </div>
+        </div>
+        <div id="skills" style="max-width: 900px; margin: 32px auto; background: #ffffff69; border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); padding: 32px;">
+            <h2 style="color:#3e5c76; margin-bottom: 16px;">Skills</h2>
+            <ul style="columns:2; font-size:1.1em; color:#2d3a4a;">
+                <li>Languages: C#, JavaScript</li>
+                <li>Web Technologies: HTML5, CSS3, ASP.NET, MVC, Angular (Basics)</li>
+                <li>Databases: SQL Server (Stored Procedures, Joins, Triggers)</li>
+                <li>Frameworks & Technologies: ASP.NET, MVC, ADO.NET, Entity Framework (Basic)</li>
+                <li>APIs: RESTful API Development & Integration</li>
+                <li>Development Practices: CRUD Operations, SDLC, Agile, Waterfall</li>
+                <li>Tools & IDEs: Visual Studio, VS Code, Git, GitHub (Basic)</li>
+                <li>Other: Troubleshooting, Debugging, Communication, Problem-solving, Adaptability</li>
+            </ul>
+        </div>
+        <div id="education" style="max-width: 900px; margin: 32px auto; background: #ffffff69; border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); padding: 32px;">
+            <h2 style="color:#3e5c76; margin-bottom: 16px;">Education</h2>
+            <p style="font-size:1.1em; color:#2d3a4a; margin-bottom:8px;"><strong>B.Tech – Computer Science & Engineering</strong> (72%)<br>
+            Annamacharya Institute of Technology and Sciences, Kadapa, Andhra Pradesh<br>
+            <span style="color:#3e5c76;">2025</span></p>
+        </div>
+        <div id="projects" style="max-width: 900px; margin: 32px auto; background: #ffffff69; border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); padding: 32px;">
+            <h2 style="color:#3e5c76; margin-bottom: 16px;">Projects</h2>
+            <div style="margin-bottom: 18px;">
+                <h3 style="color:#2d3a4a; margin-bottom: 6px;">Weed Detection System – Full Stack Web Application</h3>
+                <ul style="font-size:1.05em; color:#2d3a4a;">
+                    <li>Developed a web app enabling real-time weed identification for farmers using a trained CNN model.</li>
+                    <li>Frontend: HTML5, CSS3, JavaScript for responsive UI.</li>
+                    <li>Backend: Python Flask API for ML integration.</li>
+                    <li>Database: MongoDB for classification data storage.</li>
+                    <li>Achieved ~90% weed detection accuracy.</li>
+                    <li>Technologies: HTML5, CSS3, JavaScript, Python Flask, MongoDB, Machine Learning (CNN).</li>
+                </ul>
+                <span style="color:#3e5c76; font-size:0.98em;">Feb 2025 – Apr 2025</span>
+            </div>
+        </div>
+        <div id="courses" style="max-width: 900px; margin: 32px auto; background: #ffffff69; border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); padding: 32px;">
+            <h2 style="color:#3e5c76; margin-bottom: 16px;">Courses</h2>
+            <h3 style="color:#2d3a4a; margin-bottom: 6px;">.NET Full Stack Development – Palle Technologies</h3>
+            <ul style="font-size:1.05em; color:#2d3a4a;">
+                <li>C#, ASP.NET, MVC, SQL Server, ADO.NET, Angular (Basics)</li>
+                <li>HTML, CSS, JavaScript, REST API development</li>
+                <li>CRUD operations, backend logic, and responsive web design</li>
+                <li>Project-based learning with placement support</li>
+            </ul>
+            <span style="color:#3e5c76; font-size:0.98em;">May 2025 – Ongoing, Bangalore</span>
+        </div>
+        <div id="awards" style="max-width: 900px; margin: 32px auto; background: #ffffff69; border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); padding: 32px;">
+            <h2 style="color:#3e5c76; margin-bottom: 16px;">Awards</h2>
+            <ul style="font-size:1.05em; color:#2d3a4a;">
+                <li>Secured 2nd place in final-year project competition (2025)</li>
+            </ul>
+        </div>
+        <div id="contact" style="max-width: 900px; margin: 32px auto 64px auto; background: #ffffff69; border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); padding: 32px; text-align:center;">
+            <h2 style="color:#3e5c76; margin-bottom: 16px;">Contact</h2>
+            <p style="font-size:1.1em; color:#2d3a4a;">Email: <a href="mailto:sirisalasubramanyam@gmail.com" style="color:#3e5c76;">sirisalasubramanyam@gmail.com</a></p>
+            <p style="font-size:1.1em; color:#2d3a4a;">Phone: +91 6301114160</p>
+            <p style="font-size:1.1em; color:#2d3a4a;">Location: Bangalore, India</p>
+                    <p style="font-size:1.1em; color:#2d3a4a;">LinkedIn: <a href="https://www.linkedin.com/in/subramanyam-sirisala-3860b4219/" target="_blank" style="color:#0a8afa; display:inline-flex; align-items:center;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" style="width:22px; height:22px; margin-right:6px; vertical-align:middle;"> subramanyam-sirisala-3860b4219
+                    </a></p>
+                    <p style="font-size:1.1em; color:#2d3a4a;">GitHub: <a href="https://github.com/Subramanyam111" target="_blank" style="color:#2d3a4a; display:inline-flex; align-items:center;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="width:22px; height:22px; margin-right:6px; vertical-align:middle;"> Subramanyam111
+                    </a></p>
+        </div>
+  <div>
+    <form id="form">
         <h1>data from</h1>
     <div class="form-container">
     <div class="form-column">
@@ -340,5 +470,6 @@
             </ul>
         </details>
     </form>
+</div>
 </body>
 </html>
