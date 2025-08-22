@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="Click Me" onclick="view()">
+    <script>
+        function view() {
+            a=10;
+            b=20;
+            c=30;
+            if(a > b && b > c) {
+                document.write(a+"is greater");
+            } else if(b> c && c > a) {
+                document.write(b+"is greater");
+            }
+            else {
+                document.write(c+"is greater");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -132,7 +132,8 @@ using System.Threading.Tasks;
 
 //patient
 //pid,fname,lname,age,bg
-namespace ADO.Net_P1
+/*
+ namespace ADO.Net_P1
 {
     class Program
     {
@@ -163,6 +164,251 @@ namespace ADO.Net_P1
                     cn.Open();
                     cmd.ExecuteNonQuery();
                     cn.Close();
+                }
+            }
+
+        }
+    }
+}*/
+
+
+/*
+ namespace ADO.Net_P1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("enter patient id:");
+            int pid = Convert.ToInt32(Console.ReadLine());
+          
+            string qry = $"delete from patient where pid={pid}";
+            using (SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi"))
+            {
+                using (SqlCommand cmd = new SqlCommand(qry, cn))
+                {
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+            }
+
+        }
+    }
+}
+
+ */
+
+
+/*
+ namespace ADO.Net_P1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           
+            string qry = $"select * from docter";
+            Console.Write("did | ");
+            Console.Write("dname | ");
+            Console.Write("exp | "); ;
+            Console.Write("dept | ");
+            Console.Write("qul | ");
+            Console.WriteLine();
+            Console.WriteLine("------------------------------");
+            using (SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi"))
+            {
+                using (SqlCommand cmd = new SqlCommand(qry, cn))
+                {
+                    cn.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        int did = Convert.ToInt32(dr["did"]);
+                        string dname =Convert.ToString(dr["dname"]);
+                        int exp = Convert.ToInt32(dr["exp"]);
+                        string dept = Convert.ToString(dr["dept"]);
+                        string qul = Convert.ToString(dr["qul"]);
+
+                        Console.Write(did+" | ");
+                        Console.Write(dname+" | ");
+                        Console.Write(exp+" | "); ;
+                        Console.Write(dept+" | ");
+                        Console.Write(qul+" | ");
+                        Console.WriteLine();
+                    }
+
+                    cn.Close();
+                    Console.ReadLine();
+                }
+            }
+
+        }
+    }
+}
+*/
+
+/*namespace ADO.Net_P1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("enter docter id to search:");
+            int id = Convert.ToInt32(Console.ReadLine());
+            string qry = $"select * from docter where did={id}";
+            
+            using (SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi"))
+            {
+                using (SqlCommand cmd = new SqlCommand(qry, cn))
+                {
+                    cn.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        int did = Convert.ToInt32(dr["did"]);
+                        string dname = Convert.ToString(dr["dname"]);
+                        int exp = Convert.ToInt32(dr["exp"]);
+                        string dept = Convert.ToString(dr["dept"]);
+                        string qul = Convert.ToString(dr["qul"]);
+
+                        Console.Write(did +" ");
+                        Console.Write(dname +" ");
+                        Console.Write(exp+" " ); ;
+                        Console.Write(dept+" ");
+                        Console.Write(qul+" ");
+                        Console.WriteLine();
+                    }
+
+                    cn.Close();
+                    Console.ReadLine();
+                }
+            }
+
+        }
+    }
+}*/
+
+/*
+ namespace ADO.Net_P1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            string qry = $"select * from patient order by age asc";
+
+            using (SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi"))
+            {
+                using (SqlCommand cmd = new SqlCommand(qry, cn))
+                {
+                    cn.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        int pid = Convert.ToInt32(dr["pid"]);
+                        string fname = Convert.ToString(dr["fname"]);
+                        string lname = Convert.ToString(dr["lname"]);
+                        int age = Convert.ToInt32(dr["age"]);
+                        string bg = Convert.ToString(dr["bg"]);
+
+                        Console.Write(pid + " ");
+                        Console.Write(fname + " ");
+                        Console.Write(lname + " "); ;
+                        Console.Write(age + " ");
+                        Console.Write(bg + " ");
+                        Console.WriteLine();
+                    }
+
+                    cn.Close();
+                    Console.ReadLine();
+                }
+            }
+
+        }
+    }
+}
+
+*/
+
+/*
+ namespace ADO.Net_P1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string qry = $"select * from patient where bg like 'b%'";
+
+            using (SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi"))
+            {
+                using (SqlCommand cmd = new SqlCommand(qry, cn))
+                {
+                    cn.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        int pid = Convert.ToInt32(dr["pid"]);
+                        string fname = Convert.ToString(dr["fname"]);
+                        string lname = Convert.ToString(dr["lname"]);
+                        int age = Convert.ToInt32(dr["age"]);
+                        string bg = Convert.ToString(dr["bg"]);
+
+                        Console.Write(pid + " ");
+                        Console.Write(fname + " ");
+                        Console.Write(lname + " "); ;
+                        Console.Write(age + " ");
+                        Console.Write(bg + " ");
+                        Console.WriteLine();
+                    }
+
+                    cn.Close();
+                    Console.ReadLine();
+                }
+            }
+
+        }
+    }
+}
+     */
+
+namespace ADO.Net_P1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("enter product id:");
+            int id = Convert.ToInt32(Console.ReadLine());
+
+            string qry = $"select p.pid,p.pname,p.Quantity,p.Price,m.ManufacturerName from Product p join Manufacturer m on p.ManufacturerID=m.ManufacturerID where pid={id}";
+
+            using (SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi"))
+            {
+                using (SqlCommand cmd = new SqlCommand(qry, cn))
+                {
+                    cn.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        int pid = Convert.ToInt32(dr["pid"]);
+                        string pname = Convert.ToString(dr["pname"]);
+                        string Quantity = Convert.ToString(dr["Quantity"]);
+                        int Price = Convert.ToInt32(dr["Price"]);
+                        string ManufacturerName = Convert.ToString(dr["ManufacturerName"]);
+
+                        Console.Write(pid + " ");
+                        Console.Write(pname+ " ");
+                        Console.Write(Quantity + " "); ;
+                        Console.Write(Price + " ");
+                        Console.Write(ManufacturerName + " ");
+                        Console.WriteLine();
+                    }
+
+                    cn.Close();
+                    Console.ReadLine();
                 }
             }
 
