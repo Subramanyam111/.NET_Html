@@ -373,7 +373,7 @@ using System.Threading.Tasks;
     }
 }
      */
-
+//join
 namespace ADO.Net_P1
 {
     class Program
@@ -395,7 +395,7 @@ namespace ADO.Net_P1
                     {
                         int pid = Convert.ToInt32(dr["pid"]);
                         string pname = Convert.ToString(dr["pname"]);
-                        string Quantity = Convert.ToString(dr["Quantity"]);
+                        int Quantity = Convert.ToInt32(dr["Quantity"]);
                         int Price = Convert.ToInt32(dr["Price"]);
                         string ManufacturerName = Convert.ToString(dr["ManufacturerName"]);
 
