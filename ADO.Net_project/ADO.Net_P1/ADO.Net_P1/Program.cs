@@ -374,7 +374,8 @@ using System.Threading.Tasks;
 }
      */
 //join
-namespace ADO.Net_P1
+/*
+ namespace ADO.Net_P1
 {
     class Program
     {
@@ -415,3 +416,87 @@ namespace ADO.Net_P1
         }
     }
 }
+*/
+
+/*namespace ADO.Net_P1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("enter patient id:");
+            int pid = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("enter patient fname:");
+            string fname = Console.ReadLine();
+
+            Console.Write("enter patient lname:");
+            string lname = Console.ReadLine();
+
+            Console.Write("enter patient age:");
+            int age = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("enter patient bg:");
+            string bg = Console.ReadLine();
+
+
+            SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi");
+            cn.Open();
+            SqlCommand cmd = new SqlCommand("sp_update_patient_details", cn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlParameter p1 = new SqlParameter("@pid", System.Data.SqlDbType.Int);
+            p1.Value = pid;
+            SqlParameter p2 = new SqlParameter("@fname", System.Data.SqlDbType.VarChar, 20);
+            p2.Value = fname;
+
+            SqlParameter p3 = new SqlParameter("@lname", System.Data.SqlDbType.VarChar, 20);
+            p3.Value = lname;
+
+            SqlParameter p4 = new SqlParameter("@age", System.Data.SqlDbType.Int);
+            p4.Value = age;
+
+            SqlParameter p5 = new SqlParameter("@bg", System.Data.SqlDbType.VarChar, 20);
+            p5.Value = bg;
+
+            cmd.Parameters.Add(p1);
+            cmd.Parameters.Add(p2);
+            cmd.Parameters.Add(p3);
+            cmd.Parameters.Add(p4);
+            cmd.Parameters.Add(p5);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+                    Console.ReadLine();
+        }
+    }
+
+}*/
+
+namespace ADO.Net_P1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("enter patient id:");
+            int pid = Convert.ToInt32(Console.ReadLine());
+
+            
+
+            SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi");
+            cn.Open();
+            SqlCommand cmd = new SqlCommand("sp_delete_patient_details", cn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlParameter p1 = new SqlParameter("@pid", System.Data.SqlDbType.Int);
+            p1.Value = pid;
+           
+            cmd.Parameters.Add(p1);
+            
+            cmd.ExecuteNonQuery();
+            cn.Close();
+            Console.ReadLine();
+        }
+    }
+
+}
+
+

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentic Calculator</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+            min-height: 100vh;
+            margin: 0;
+        }
+        .calculator-container {
+            max-width: 340px;
+            margin: 60px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            padding: 32px 24px 24px 24px;
+        }
+        h1 {
+            text-align: center;
+            color: #66a6ff;
+            margin-bottom: 24px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #display {
+            width: 90%;
+            height: 40px;
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            text-align: right;
+            border-radius: 8px;
+            border: 1px solid #66a6ff;
+            padding: 6px 12px;
+            background: #f7f7f7;
+        }
+        .button-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+        input[type="button"] {
+            width: 56px;
+            height: 40px;
+            margin: 2px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            border: none;
+            background: #66a6ff;
+            color: #fff;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        input[type="button"]:hover {
+            background: #89f7fe;
+            color: #333;
+        }
+        input[type="button"].op {
+            background: #ffb86c;
+            color: #fff;
+        }
+        input[type="button"].op:hover {
+            background: #ffd6a5;
+            color: #333;
+        }
+        input[type="button"].eq {
+            background: #43cea2;
+        }
+        input[type="button"].eq:hover {
+            background: #185a9d;
+        }
+        input[type="button"].clr {
+            background: #ff5e62;
+        }
+        input[type="button"].clr:hover {
+            background: #ffb6b9;
+            color: #333;
+        }
+    </style>
+</head>
+<body> 
+    <div class="calculator-container">   
+        <h1>Authentic Calculator</h1>
+        <form name="calculator" autocomplete="off" onsubmit="return false;">
+            <input type="text" name="display" id="display" disabled>
+            <div class="button-row">
+                <input type="button" value="1" onclick="append('1')">
+                <input type="button" value="2" onclick="append('2')">
+                <input type="button" value="3" onclick="append('3')">
+                <input type="button" value="+" class="op" onclick="append('+')">
+            </div>
+            <div class="button-row">
+                <input type="button" value="4" onclick="append('4')">
+                <input type="button" value="5" onclick="append('5')">
+                <input type="button" value="6" onclick="append('6')">
+                <input type="button" value="-" class="op" onclick="append('-')">
+            </div>
+            <div class="button-row">
+                <input type="button" value="7" onclick="append('7')">
+                <input type="button" value="8" onclick="append('8')">
+                <input type="button" value="9" onclick="append('9')">
+                <input type="button" value="*" class="op" onclick="append('*')">
+            </div>
+            <div class="button-row">
+                <input type="button" value="C" class="clr" onclick="clearDisplay()">
+                <input type="button" value="0" onclick="append('0')">
+                <input type="button" value="." onclick="append('.')">
+                <input type="button" value="/" class="op" onclick="append('/')">
+            </div>
+            <div class="button-row">
+                <input type="button" value="←" onclick="backspace()" style="background:#ffd6a5;color:#333;">
+                <input type="button" value="=" class="eq" onclick="calculate()">
+            </div>
+        </form>
+        <script>
+            function append(val) {
+                let display = document.getElementById('display');
+                const ops = ['+', '-', '*', '/'];
+                if (ops.includes(val)) {
+                    if (display.value === '' || ops.includes(display.value.slice(-1))) {
+                        return;
+                    }
+                }
+                // Prevent multiple decimals in a number
+                if (val === '.') {
+                    let parts = display.value.split(/[-+*/]/);
+                    if (parts[parts.length-1].includes('.')) return;
+                    if (display.value === '' || ops.includes(display.value.slice(-1))) {
+                        display.value += '0';
+                    }
+                }
+                display.value += val;
+            }
+            function clearDisplay() {
+                document.getElementById('display').value = '';
+            }
+            function backspace() {
+                let display = document.getElementById('display');
+                display.value = display.value.slice(0, -1);
+            }
+            function calculate() {
+                let display = document.getElementById('display');
+                let expr = display.value;
+                if (!/^[-+*/.\d\s]+$/.test(expr)) {
+                    display.value = 'Error';
+                    return;
+                }
+                try {
+                    let result = Function('return ' + expr)();
+                    if (typeof result === 'number' && isFinite(result)) {
+                        display.value = result;
+                    } else {
+                        display.value = 'Error';
+                    }
+                } catch (e) {
+                    display.value = 'Error';
+                }
+            }
+            // Keyboard support
+            document.addEventListener('keydown', function(e) {
+                const key = e.key;
+                if ((key >= '0' && key <= '9') || ['+', '-', '*', '/'].includes(key)) {
+                    append(key);
+                } else if (key === 'Enter' || key === '=') {
+                    calculate();
+                } else if (key === 'Backspace') {
+                    backspace();
+                } else if (key === 'Escape' || key.toLowerCase() === 'c') {
+                    clearDisplay();
+                } else if (key === '.') {
+                    append('.');
+                }
+            });
+        </script>
+    </div>   
+</body>
+</html>
