@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Two Numbers</title>
+</head>
+<body>
+  <h3>Add Two Numbers</h3>
+  
+  <input type="number" id="num1" placeholder="Enter first number">
+  <br><br>
+  <input type="number" id="num2" placeholder="Enter second number">
+  <br><br>
+  <input type="button" value="1" onclick="append('1')">
+  <input type="button" value="2" onclick="append('2')">
+    <input type="button" value="3" onclick="append('3')"><br>
+    <input type="button" value="4" onclick="append('4')">
+    <input type="button" value="5" onclick="append('5')">
+    <input type="button" value="6" onclick="append('6')"><br>
+    <input type="button" value="7" onclick="append('7')">
+    <input type="button" value="8" onclick="append('8')">
+    <input type="button" value="9" onclick="append('9')"><br>
+    <input type="button" value="0" onclick="append('0')">
+  <button onclick="addNumbers()">Add</button>
+  
+  <div id="results"></div>
+  
+  <script>
+    let activeInput = null;
+    document.getElementById('num1').addEventListener('focus', function() { activeInput = this; });
+    document.getElementById('num2').addEventListener('focus', function() { activeInput = this; });
+
+    function append(num) {
+      if (!activeInput) {
+        // Default to num1 if nothing is focused
+        activeInput = document.getElementById('num1');
+      }
+      activeInput.value += num;
+      activeInput.focus();
+    }
+
+    function addNumbers() {
+      var n1 = parseFloat(document.getElementById("num1").value) || 0;
+      var n2 = parseFloat(document.getElementById("num2").value) || 0;
+      var sum = n1 + n2;
+      document.getElementById("results").textContent = "Result: " + sum;
+    }
+
+  </script>
+</body>
+</html>
