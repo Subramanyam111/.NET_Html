@@ -471,7 +471,8 @@ using System.Threading.Tasks;
 
 }*/
 
-namespace ADO.Net_P1
+/*
+ namespace ADO.Net_P1
 {
     class Program
     {
@@ -493,6 +494,84 @@ namespace ADO.Net_P1
             
             cmd.ExecuteNonQuery();
             cn.Close();
+            Console.ReadLine();
+        }
+    }
+
+}
+
+ */
+
+//sp_delete_docter_details
+/*namespace ADO.Net_P1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("enter docter id:");
+            int did = Convert.ToInt32(Console.ReadLine());
+
+
+
+            SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi");
+            cn.Open();
+            SqlCommand cmd = new SqlCommand("sp_delete_docter_details", cn);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlParameter p1 = new SqlParameter("@did", System.Data.SqlDbType.Int);
+
+            p1.Value = did;
+
+            cmd.Parameters.Add(p1);
+
+            cmd.ExecuteNonQuery();
+
+            cn.Close();
+            Console.ReadLine();
+        }
+    }
+
+}*/
+//searching docter details 
+namespace ADO.Net_P1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("enter docter id:");
+            int did = Convert.ToInt32(Console.ReadLine());
+
+            SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi");
+            cn.Open();
+            SqlCommand cmd = new SqlCommand("sp_search_docter_details", cn);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlParameter p1 = new SqlParameter("@did", System.Data.SqlDbType.Int);
+
+            p1.Value = did;
+
+            cmd.Parameters.Add(p1);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                did = Convert.ToInt32(dr["did"]);
+                string dname = Convert.ToString(dr["dname"]);
+                int exp = Convert.ToInt32(dr["exp"]);
+                string dept = Convert.ToString(dr["dept"]);
+                string qul = Convert.ToString(dr["qul"]);
+
+                Console.Write(did + " ");
+                Console.Write(dname + " ");
+                Console.Write(exp + " "); ;
+                Console.Write(dept + " ");
+                Console.Write(qul + " ");
+
+            }
+                cn.Close();
             Console.ReadLine();
         }
     }
