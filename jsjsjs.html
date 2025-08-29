@@ -8,6 +8,7 @@
 <body>
   <input type="text" id="a">
   <input type="button" value="check" onclick="f1()">
+  <input type="button" value="back to login" onclick="f2()">
   <script>
     function f1(){
       var a1=document.getElementById("a").value;
@@ -17,6 +18,9 @@
       }else{
         document.write("no");
       }
+    }
+    function f2(){
+      window.location.href="login_page_project.html";
     }
 
   </script>
