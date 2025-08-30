@@ -541,6 +541,7 @@ namespace ADO.Net_P1
     {
         static void Main(string[] args)
         {
+            //taking input from the user to search docter details using diocter id
             Console.Write("enter docter id:");
             int did = Convert.ToInt32(Console.ReadLine());
 
@@ -558,12 +559,14 @@ namespace ADO.Net_P1
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
+                //to instalise the values 
                 did = Convert.ToInt32(dr["did"]);
                 string dname = Convert.ToString(dr["dname"]);
                 int exp = Convert.ToInt32(dr["exp"]);
                 string dept = Convert.ToString(dr["dept"]);
                 string qul = Convert.ToString(dr["qul"]);
 
+                //to display the records
                 Console.Write(did + " ");
                 Console.Write(dname + " ");
                 Console.Write(exp + " "); ;
