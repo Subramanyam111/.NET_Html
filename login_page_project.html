@@ -6,7 +6,11 @@
     <title>login page</title>
     <style>
         body {
-            background: #e7e3e2;
+            /* Green forest close-up background, dark theme */
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') no-repeat center center fixed;
+            background-size: cover;
+            background-blend-mode: normal; /* Remove multiply for full color */
+            background-color: #181c1b;
         }
         .container {
             display: flex;
@@ -16,40 +20,43 @@
         }
         form {
             font-size: 1.2rem;
-            color: #333;
-            background: #f7f7f7;
+            color: #e0f2e9;
+            background: rgba(24, 28, 27, 0.55); /* More transparent */
             border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.32);
             margin: auto;
             padding: 32px 24px;
-            border: 2px solid #ccc;
+            border: 2px solid #2e4d3a;
             box-sizing: border-box;
             min-width: 320px;
             max-width: 400px;
         }
         h3 {
             text-align: center;
-            color: #444;
+            color: #b7e4c7;
             margin-bottom: 24px;
         }
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
+            color: #b7e4c7;
         }
         input[type="text"], input[type="password"] {
             width: 100%;
             padding: 8px 10px;
             margin-bottom: 18px;
             border-radius: 6px;
-            border: 1px solid #bbb;
+            border: 1px solid #4a7c59;
             font-size: 1rem;
             box-sizing: border-box;
+            background: #222a25;
+            color: #e0f2e9;
         }
         input[type="button"] {
             width: 100%;
             padding: 10px;
-            background: #4a90e2;
+            background: #4a7c59;
             color: #fff;
             border: none;
             border-radius: 6px;
@@ -58,10 +65,10 @@
             transition: background 0.2s;
         }
         input[type="button"]:hover:enabled {
-            background: #357abd;
+            background: #2e4d3a;
         }
         input:disabled {
-            background: #eee !important;
+            background: #333 !important;
             color: #aaa !important;
             cursor: not-allowed;
         }
