@@ -535,7 +535,7 @@ using System.Threading.Tasks;
 
 }*/
 //searching docter details 
-namespace ADO.Net_P1
+/*namespace ADO.Net_P1
 {
     class Program
     {
@@ -576,6 +576,70 @@ namespace ADO.Net_P1
             }
                 cn.Close();
             Console.ReadLine();
+        }
+    }
+
+}*/
+
+//list
+namespace ADO.Net_P1
+{
+    
+    public class fruit
+    {
+        public int f_id, cost;
+        public string f_name, f_family, origin_place, season;
+        public fruit(int f_id,string f_name,int cost,string f_family,string origin_place, string season)
+        {
+            this.f_id = f_id;
+            this.f_name = f_name;
+            this.cost = cost;
+            this.f_family = f_family;
+            this.origin_place = origin_place;
+            this.season = season;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi");
+            cn.Open();
+            SqlCommand cmd = new SqlCommand("sp_fruit_details", cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            List<fruit> fruitsdetails = new List<fruit>();
+             int f_id, cost;
+             string f_name, f_family, origin_place, season;
+            while (dr.Read())
+            {
+                f_id = Convert.ToInt32(dr["f_id"]);
+                f_name = Convert.ToString(dr["f_name"]);
+                cost = Convert.ToInt32(dr["cost"]);
+                f_family = Convert.ToString(dr["f_family"]);
+                origin_place = Convert.ToString(dr["origin_place"]);
+                season = Convert.ToString(dr["season"]);
+
+                fruit f = new fruit(f_id, f_name, cost, f_family, origin_place, season);
+                fruitsdetails.Add(f);
+            }
+            for (int i = 0; i < fruitsdetails.Count; i++)
+            {
+                fruit p = fruitsdetails[i];
+
+                Console.Write(p.f_id+" ");
+                Console.Write(p.f_name+" ");
+                Console.Write(p.cost+ " ");
+                Console.Write(p.f_family+" ");
+                Console.Write(p.origin_place+" ");
+                Console.Write(p.season+ " ");
+                Console.WriteLine();
+
+            }
+            cn.Close();
+
+        Console.ReadLine();
         }
     }
 
