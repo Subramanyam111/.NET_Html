@@ -582,7 +582,7 @@ using System.Threading.Tasks;
 }*/
 
 //list
-namespace ADO.Net_P1
+/*namespace ADO.Net_P1
 {
     
     public class fruit
@@ -640,6 +640,288 @@ namespace ADO.Net_P1
             cn.Close();
 
         Console.ReadLine();
+        }
+    }
+
+}*/
+//inserting into the employee table using sp
+/*namespace ADO.Net_P1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("enter employee id :");
+            int eid = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("enter employee first name :");
+            string fname = Console.ReadLine();
+
+            Console.Write("enter employee last name :");
+            string lname = Console.ReadLine();
+
+            Console.Write("enter employee age :");
+            int age = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("enter employee salary :");
+            int salary = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("enter employee dept :");
+            string dept = Console.ReadLine();
+
+            Console.Write("enter employee doj :");
+            string doj = Console.ReadLine();
+
+
+            SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi");
+            cn.Open();
+            SqlCommand cmd = new SqlCommand("sp_insert_employee", cn);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlParameter p1 = new SqlParameter("@eid", System.Data.SqlDbType.Int);
+
+            p1.Value = eid;
+
+            SqlParameter p2 = new SqlParameter("@fname", System.Data.SqlDbType.VarChar,40);
+
+            p2.Value = fname;
+
+            SqlParameter p3 = new SqlParameter("@lname", System.Data.SqlDbType.VarChar,40);
+
+            p3.Value = lname;
+
+            SqlParameter p4 = new SqlParameter("@age", System.Data.SqlDbType.Int);
+
+            p4.Value = age;
+
+            SqlParameter p5 = new SqlParameter("@salary", System.Data.SqlDbType.Int);
+
+            p5.Value = eid;
+
+            SqlParameter p6 = new SqlParameter("@dept", System.Data.SqlDbType.VarChar);
+
+            p6.Value = dept;
+
+            SqlParameter p7 = new SqlParameter("@doj", System.Data.SqlDbType.Date);
+
+            p7.Value = doj;
+
+            cmd.Parameters.Add(p1);
+
+            cmd.Parameters.Add(p2);
+
+            cmd.Parameters.Add(p3);
+
+            cmd.Parameters.Add(p4);
+
+            cmd.Parameters.Add(p5);
+
+            cmd.Parameters.Add(p6);
+
+            cmd.Parameters.Add(p7);
+
+            cmd.ExecuteNonQuery();
+
+            cn.Close();
+
+            Console.ReadLine();
+        }
+    }
+}*/
+
+//updating employee table using eid with sp
+/*namespace ADO.Net_P1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("updating employee deatils with emp id");
+
+            Console.Write("enter employee id to update:");
+            int eid = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("enter employee first name :");
+            string fname = Console.ReadLine();
+
+            Console.Write("enter employee last name :");
+            string lname = Console.ReadLine();
+
+            Console.Write("enter employee age :");
+            int age = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("enter employee salary :");
+            int salary = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("enter employee dept :");
+            string dept = Console.ReadLine();
+
+            Console.Write("enter employee doj :");
+            string doj = Console.ReadLine();
+
+
+            SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi");
+            cn.Open();
+            SqlCommand cmd = new SqlCommand("sp_update_employee_1", cn);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlParameter p1 = new SqlParameter("@eid", System.Data.SqlDbType.Int);
+
+            p1.Value = eid;
+
+            SqlParameter p2 = new SqlParameter("@fname", System.Data.SqlDbType.VarChar, 40);
+
+            p2.Value = fname;
+
+            SqlParameter p3 = new SqlParameter("@lname", System.Data.SqlDbType.VarChar, 40);
+
+            p3.Value = lname;
+
+            SqlParameter p4 = new SqlParameter("@age", System.Data.SqlDbType.Int);
+
+            p4.Value = age;
+
+            SqlParameter p5 = new SqlParameter("@salary", System.Data.SqlDbType.Int);
+
+            p5.Value = eid;
+
+            SqlParameter p6 = new SqlParameter("@dept", System.Data.SqlDbType.VarChar);
+
+            p6.Value = dept;
+
+            SqlParameter p7 = new SqlParameter("@doj", System.Data.SqlDbType.Date);
+
+            p7.Value = doj;
+
+            cmd.Parameters.Add(p1);
+
+            cmd.Parameters.Add(p2);
+
+            cmd.Parameters.Add(p3);
+
+            cmd.Parameters.Add(p4);
+
+            cmd.Parameters.Add(p5);
+
+            cmd.Parameters.Add(p6);
+
+            cmd.Parameters.Add(p7);
+
+            cmd.ExecuteNonQuery();
+
+            cn.Close();
+
+            Console.ReadLine();
+        }
+    }
+}*/
+
+
+//delete a record from employee 
+/*namespace ADO.Net_P1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("delete employee deatils with emp id");
+
+            Console.Write("enter employee id to delete:");
+            int eid = Convert.ToInt32(Console.ReadLine());
+        
+
+            SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi");
+            cn.Open();
+            SqlCommand cmd = new SqlCommand("sp_delete_employee_1", cn);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlParameter p1 = new SqlParameter("@eid", System.Data.SqlDbType.Int);
+
+            p1.Value = eid;
+
+            
+
+            cmd.Parameters.Add(p1);
+
+
+            cmd.ExecuteNonQuery();
+
+            cn.Close();
+
+            Console.ReadLine();
+        }
+    }
+}*/
+
+namespace ADO.Net_P1
+{
+
+    public class emp
+    {
+        public int eid, salary,age;
+        public string fname,lname,dept,doj;
+        public emp(int eid, string fname, string lname, int age, int  salary, string dept,string doj)
+        {
+            this.eid = eid;
+            this.lname = lname;
+            this.fname = fname;
+            this.age = age;
+            this.salary = salary;
+            this.dept = dept;
+            this.doj = doj;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("enter employee id to search");
+            int id = Convert.ToInt32(Console.ReadLine());
+
+            SqlConnection cn = new SqlConnection("data source=DESKTOP-UPK6IVO; initial catalog=subbu; integrated security=sspi");
+            cn.Open();
+            SqlCommand cmd = new SqlCommand("sp_search_employee_deatils", cn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlParameter p1 = new SqlParameter("@eid", System.Data.SqlDbType.Int);
+            p1.Value = id;
+            cmd.Parameters.Add(p1);
+            
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            List<emp> empdetails = new List<emp>();
+            while (dr.Read())
+            {
+                int eid = Convert.ToInt32(dr["eid"]);
+               string fname = Convert.ToString(dr["fname"]);
+               string lname = Convert.ToString(dr["lname"]);
+                int age = Convert.ToInt32(dr["age"]);
+                int salary = Convert.ToInt32(dr["salary"]);
+                string dept = Convert.ToString(dr["dept"]);
+                string doj = Convert.ToString(dr["doj"]);
+
+                emp f = new emp(eid, fname, lname, age, salary, dept,doj);
+                empdetails.Add(f);
+            }
+            for (int i = 0; i < empdetails.Count; i++)
+            {
+                emp p = empdetails[i];
+
+                Console.Write(p.eid + " ");
+                Console.Write(p.fname + " ");
+                Console.Write(p.lname + " ");
+                Console.Write(p.age + " ");
+                Console.Write(p.salary + " ");
+                Console.Write(p.dept + " ");
+                Console.Write(p.doj + " ");
+                Console.WriteLine();
+
+            }
+            cn.Close();
+
+            Console.ReadLine();
         }
     }
 
